@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import json
 import requests
 import pandas as pd
@@ -36,6 +37,7 @@ d =  {
         'tc': d['WeatherForecasts'][0]['forecasts'][0]['data']['tc'],
         'rain': d['WeatherForecasts'][0]['forecasts'][0]['data']['rain']
     }
-df_out = pd.read_csv('/Users/chayaponechainate/Desktop/Chayapone_TMD_Contab/TMD_data_Jay.csv')
+df_out = pd.read_csv('/home/chayapone001/Chayapone_TMD_Contab/TMD_data_Jay.csv')
+df_out = df_out.drop(columns=['Unnamed: 0'])
 df_out.loc[len(df_out)]=['Chiang_Rai',d['time'],d['tc'],d['rh'],d['rain']]
-df_out.to_csv('/Users/chayaponechainate/Desktop/Chayapone_TMD_Contab/TMD_data_Jay.csv')
+df_out.to_csv('/home/chayapone001/Chayapone_TMD_Contab/TMD_data_Jay.csv')
